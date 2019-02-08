@@ -1,0 +1,134 @@
+$c-title: #0f400f;
+
+body {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-attachment: fixed;
+    background-image: url(../img/slider-bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+}    
+
+.banner-container{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,.7);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-content{
+    font-family: "Titillium Web script=all rev=1";
+    font-style: normal;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    z-index: 1;
+}
+
+.banner-content h1{
+    color: #0dee46e8;
+    font-weight: 700;
+}
+
+.banner-content p{
+    font-weight: 300;
+}
+
+header {
+    padding-top: 70px;
+    background-color: #1be751b8;
+    padding-bottom: 40px;
+}
+
+header .col-md-6 {
+    padding: 0 !important;
+}
+
+header .main-title h2{
+    letter-spacing: 0.15em;
+}
+
+.header-content-right.bg-white,
+.header-content-left.bg-white{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.header-content-left,
+.header-content-left img,
+.header-content-right,
+.header-content-right img {
+    height: 100%;
+}
+
+footer {
+    color: #4a4a4a;
+    background-color: #f2f2f2;
+}
+
+.footer-content-right,
+.footer-content-left,
+.footer-content-right form{
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-content-right textarea,
+.footer-content-right input {    
+    margin: 15px 0;
+    padding: 10px;
+    width: 80%;
+}
+
+.footer-content-right input {    
+    height: 35px;
+}
+
+.mt-first-el{
+    color: $c-title;
+    margin-top: 120px;
+    margin-bottom: 30px;
+}
+
+.mt-first-el h1{
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.course-item-title {
+    background-color: #0d7a2ab8;
+    padding: 30px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.circle-img {
+    width: 100%;
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 50%;  
+}
+
+.flex-column {
+    flex-direction: column;
+}
