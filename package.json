@@ -4,7 +4,7 @@
   "description": "Robótica y programación para niños, Bucaramanga, STEM.",
   "main": "index.js",
   "scripts": {
-    "start": "node src",
+    "start": "node src/",
     "gulp:dev": "gulp",
     "dev": "nodemon src"
   },
