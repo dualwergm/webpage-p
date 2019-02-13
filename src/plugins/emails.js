@@ -4,9 +4,9 @@ const buildMsg = require('./buildMsg');
 async function sendMail(jData){
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 587,
+    port: 465,
     service: "gmail",
-    secure: false, // true for 465, false for other ports
+    secure: true, // true for 465, false for other ports
     auth: {
       user: 'piensatech@gmail.com', // generated ethereal user
       pass: 'piensatech0214' // generated ethereal password
