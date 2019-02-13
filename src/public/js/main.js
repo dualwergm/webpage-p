@@ -74,6 +74,7 @@ const sendMail = function(e){
             .then(res => res.json())
             .then(data => {
               resetBtn($btn);
+              console.log(data);
               if(data.status < 1){
                 showAlert("No se pudo enviar, intentalo de nuevo");
               }else{
