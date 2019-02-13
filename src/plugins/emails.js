@@ -5,6 +5,7 @@ async function sendMail(jData){
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
+    service: "gmail",
     secure: false, // true for 465, false for other ports
     auth: {
       user: 'piensatech@gmail.com', // generated ethereal user
