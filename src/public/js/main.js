@@ -89,16 +89,17 @@ const sendMail = function(e){
     }
 };
 
-function initchatinline(){
-	var hccid=96485090;
-	var nt=document.createElement("script");
-	nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;
-	var ct=document.getElementsByTagName("script")[0];
-	ct.parentNode.insertBefore(nt,ct);
+function add_chatinline(){
+    var hccid=96485090;
+    var nt=document.createElement("script");
+    nt.async=true;
+    nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;
+    var ct=document.getElementsByTagName("script")[0];
+    ct.parentNode.insertBefore(nt,ct);
 }
 
 $(function(){
-    initchatinline();
+    add_chatinline();
     $("#navContact,a.btn.btn-success,a.btn.btn-outline-success").on("click", gotoContact);
     $("#btnSendMail").on("click", sendMail);
 });
