@@ -74,7 +74,7 @@ const sendMail = function(e){
             .then(res => res.json())
             .then(data => {
               resetBtn($btn);
-              console.log(data);
+              console.log("1", data);
               if(data.status < 1){
                 showAlert("No se pudo enviar, intentalo de nuevo");
               }else{
@@ -90,13 +90,13 @@ const sendMail = function(e){
 };
 
 function add_chatinline(){
-    var hccid=96485090;
-    var nt=document.createElement("script");
-    nt.async=true;
-    nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;
-    var ct=document.getElementsByTagName("script")[0];
-    ct.parentNode.insertBefore(nt,ct);
+	var hccid=96485090;
+	var nt=document.createElement("script");
+	nt.async=true;nt.src="https://mylivechat.com/chatinline.aspx?hccid="+hccid;
+	var ct=document.getElementsByTagName("script")[0];
+	ct.parentNode.insertBefore(nt,ct);
 }
+
 
 $(function(){
     add_chatinline();
