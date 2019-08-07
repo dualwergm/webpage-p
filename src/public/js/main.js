@@ -99,7 +99,7 @@ function add_chatinline(){
 
 
 $(function(){
-    add_chatinline();
+    //add_chatinline();
     $("#navContact,a.btn.btn-success,a.btn.btn-outline-success").on("click", gotoContact);
     $("#btnSendMail").on("click", sendMail);
 });
