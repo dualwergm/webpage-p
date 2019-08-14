@@ -85,6 +85,44 @@ const sendMail = function(e){
                 resetBtn($btn);
                 showAlert("No se pudo enviar, intentalo de nuevo");
             });
+    }
+};
+
+const addMail = function(e){
+    e.preventDefault();
+    if(validateFields()){
+        $('.alert.alert-dismissible').hide();
+        let $btn = $(this);
+        loadingBtn($btn);
+        let jData = {
+            name: $(".footer-content-right input#name").val(),
+            email: $(".footer-content-right input#email").val(),
+            phone: $(".footer-content-right input#phone").val(),
+            comment: $(".footer-content-right textarea#comment").val(),
+            dreceived: new Date(Date.now()).toLocaleString()
+        };
+        fetch('/addMail', {
+            method: 'POST',
+            body: JSON.stringify(jData),
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            }
+          })
+            .then(res => res.json())
+            .then(data => {
+              resetBtn($btn);
+              console.log("1", data);
+              if(data.status < 1){
+                showAlert("No se pudo enviar, intentalo de nuevo");
+              }else{
+                afterSend();
+              }
+            })
+            .catch(err => {
+                resetBtn($btn);
+                showAlert("No se pudo enviar, intentalo de nuevo");
+            });
 
     }
 };
@@ -97,9 +135,29 @@ function add_chatinline(){
 	ct.parentNode.insertBefore(nt,ct);
 }
 
+function processMail(id){
+  fetch('/processMail', {
+    method: 'POST',
+    body: JSON.stringify({
+      id,
+      dprocessed: new Date(Date.now()).toLocaleString()
+    }),
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }
+  })
+    .then(res => res.json())
+    .then(data => {
+      location.reload(true);
+    })
+    .catch(err => {
+        showAlert("No se pudo procesar");
+    });
+}
 
 $(function(){
     //add_chatinline();
     $("#navContact,a.btn.btn-success,a.btn.btn-outline-success").on("click", gotoContact);
-    $("#btnSendMail").on("click", sendMail);
+    $("#btnSendMail").on("click", addMail);
 });

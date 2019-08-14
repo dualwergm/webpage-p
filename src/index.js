@@ -2,6 +2,12 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const path = require('path');
+const mongoose = require('mongoose');
+
+//connecting to db
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ptechdb')
+    .then(db => console.log('Db connected'))
+    .catch(err => console.log(err));
 
 //settings
 app.set('port', process.env.PORT || 3000);

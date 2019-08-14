@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const sendMail = require('../plugins/emails');
+const Mail = require('../models/mails');
 
 router.get('/', (req, res) => {
     res.render('index.html');
@@ -16,6 +17,33 @@ router.get('/about', (req, res) => {
 
 router.get('/colegio', (req, res) => {
     res.render('colegio.html');
+});
+
+router.get('/dbmails', async (req, res) => {
+    const mails = await Mail.find();
+    res.render('db/mails', {
+        mails
+    });
+});
+
+router.get('/mail/delete/:id', async (req, res) => {
+    const {id} = req.params;
+    await Mail.remove({_id: id});
+    res.redirect('/dbmails');
+});
+
+router.post('/processMail', async (req, res) => {
+    const {id, dprocessed} = req.body;
+    const mail = await Mail.findById(id);
+    mail.dprocessed = dprocessed;
+    await mail.save();
+    res.json({msg: "processed", status: 1});    
+});
+
+router.post('/addMail', async(req, res) => {
+    const mail = new Mail(req.body);
+    await mail.save();
+    res.json({msg: "sent", status: 1});    
 });
 
 router.post('/send', async (req, res) => {
